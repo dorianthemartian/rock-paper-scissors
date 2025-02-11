@@ -1,5 +1,5 @@
 // This is just to test the js file is connected to the html file. 
-console.log("Rock Paper Scissors!")
+console.log("Rock Paper Scissors! Let's PLAY!")
 // Write a function to return "Rock," "Paper," or "Scissors"
 
 
@@ -32,19 +32,23 @@ function getComputerChoice() {
 // Write a function that takes the human's choice. Return must be included otherwise 
 // console.log doesn't show anything. Only the prompt is shown. 
 function getHumanChoice() {
-    let humanChoice = prompt("Rock, Paper, or Scissors?");
-    
+    let humanChoice = prompt("Rock, Paper, or Scissors?");   
     return humanChoice;   
 }
 // This is only used to check the function is working:
 // console.log(getHumanChoice());
 
+
+
 function playGame() {
     // Create two variables in the global scope. I moved these into the playGame function 
-    // based on research from the internet.
-let humanScore = 0;
-let computerScore = 0;
+    // based on research from the internet. I'm not sure if it works outside of this function. 
+    // I checked. The function still works when these variables are outside this function. 
+    let humanScore = 0;
+    let computerScore = 0;
 
+// This is a list of all the possible iterations of Rock, Paper, and Scissors. I saw there
+// was a better way to do this online, but I think this helps me understand a little better. 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice == computerChoice) {
         console.log(`You both picked ${computerChoice}! It's a tie!`);
@@ -68,10 +72,14 @@ function playRound(humanChoice, computerChoice) {
         computerScore++;
     }
 }
+// this loop is to ensure the playRound function plays multiple times. In this case
+// it plays up to 5 times, starting at 0 and going to 4 (5 times total). 
 for (let i=0; i < 5; i++) {
     playRound(getHumanChoice(), getComputerChoice());
 }
+// this if statement is run at the end of the loop to tally up the scores. 
 if (computerScore > humanScore) {
+    // in order to use ${} you need to use back ticks. Otherwise, it won't work. 
     console.log(`You lose ${computerScore} to ${humanScore}!`)
 } else if (humanScore > computerScore) {
     console.log(`You win ${humanScore} to ${computerScore}!`)
@@ -80,5 +88,6 @@ if (computerScore > humanScore) {
 }
 
 }
-
+// Multiple functions are inside this function so the only thing you have to do 
+// at the end is run this one function. 
 playGame();
