@@ -2,10 +2,6 @@
 console.log("Rock Paper Scissors!")
 // Write a function to return "Rock," "Paper," or "Scissors"
 
-// Create two variables in the global scope. 
-let humanScore = 0;
-let computerScore = 0;
-
 
 function getComputerChoice() {
     // Create a variable to hold the function equation
@@ -31,7 +27,7 @@ function getComputerChoice() {
     return choice;
 }
 // This is only used to check the function is working:
-console.log(getComputerChoice());
+// console.log(getComputerChoice());
 
 // Write a function that takes the human's choice. Return must be included otherwise 
 // console.log doesn't show anything. Only the prompt is shown. 
@@ -41,7 +37,13 @@ function getHumanChoice() {
     return humanChoice;   
 }
 // This is only used to check the function is working:
-console.log(getHumanChoice());
+// console.log(getHumanChoice());
+
+function playGame() {
+    // Create two variables in the global scope. I moved these into the playGame function 
+    // based on research from the internet.
+let humanScore = 0;
+let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice == computerChoice) {
@@ -66,3 +68,17 @@ function playRound(humanChoice, computerChoice) {
         computerScore++;
     }
 }
+for (let i=0; i < 5; i++) {
+    playRound(getHumanChoice(), getComputerChoice());
+}
+if (computerScore > humanScore) {
+    console.log(`You lose ${computerScore} to ${humanScore}!`)
+} else if (humanScore > computerScore) {
+    console.log(`You win ${humanScore} to ${computerScore}!`)
+} else if (humanScore == computerScore) {
+    console.log(`You tied ${humanScore} to ${computerScore}!`)
+}
+
+}
+
+playGame();
