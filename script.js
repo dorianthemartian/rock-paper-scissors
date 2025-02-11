@@ -22,15 +22,15 @@ function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
     // Create conditional statement to produce string options
     if (randomNumber === 0) {
-        computerChoice = "Rock";
+        choice = "Rock";
     } else if (randomNumber === 1) {
-        computerChoice = "Paper";
+        choice = "Paper";
     } else if (randomNumber === 2) {
-        computerChoice = "Scissors";
+        choice = "Scissors";
     }
-    return computerChoice;
+    return choice;
 }
-// This is only used to check the fucntion is working:
+// This is only used to check the function is working:
 console.log(getComputerChoice());
 
 // Write a function that takes the human's choice. Return must be included otherwise 
@@ -40,5 +40,29 @@ function getHumanChoice() {
     
     return humanChoice;   
 }
-// This is only used to check the fucntion is working:
+// This is only used to check the function is working:
 console.log(getHumanChoice());
+
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice == computerChoice) {
+        console.log(`You both picked ${computerChoice}! It's a tie!`);
+    } else if (humanChoice == "Rock" && computerChoice == "Scissors") {
+        console.log("You win! Rock beats paper!");
+        humanScore++;
+    } else if (humanChoice == "Rock" && computerChoice == "Paper") {
+        console.log("You lose! Paper beats rock!");
+        computerScore++;
+    } else if (humanChoice == "Paper" && computerChoice == "Rock") {
+        console.log("You win! Paper beats rock!");
+        humanScore++;
+    } else if (humanChoice == "Paper" && computerChoice == "Scissors") {
+        console.log("You lose! Scissors beats paper!");
+        computerScore++;
+    } else if (humanChoice == "Scissors" && computerChoice == "Paper") {
+        console.log("You win! Scissors beats paper!");
+        humanScore++;
+    } else if (humanChoice == "Scissors" && computerChoice == "Rock") {
+        console.log("You lose! Rock beats scissors!");
+        computerScore++;
+    }
+}
