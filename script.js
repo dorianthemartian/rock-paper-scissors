@@ -2,6 +2,10 @@
 console.log("Rock Paper Scissors!")
 // Write a function to return "Rock," "Paper," or "Scissors"
 
+// Create two variables in the global scope. 
+let humanScore = 0;
+let computerScore = 0;
+
 
 function getComputerChoice() {
     // Create a variable to hold the function equation
@@ -26,4 +30,15 @@ function getComputerChoice() {
     }
     return computerChoice;
 }
+// This is only used to check the fucntion is working:
 console.log(getComputerChoice());
+
+// Write a function that takes the human's choice. Return must be included otherwise 
+// console.log doesn't show anything. Only the prompt is shown. 
+function getHumanChoice() {
+    let humanChoice = prompt("Rock, Paper, or Scissors?");
+    
+    return humanChoice;   
+}
+// This is only used to check the fucntion is working:
+console.log(getHumanChoice());
